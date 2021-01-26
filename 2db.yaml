@@ -1,0 +1,33 @@
+# # Global variables are applied to all deployments and used as the default value of
+# # the deployments if a specific deployment value is missing.
+global:
+  user: "tidb"
+  ssh_port: 22
+  deploy_dir: "/home/tidb/tmp/mini-deploy"
+  data_dir: "/home/tidb/tmp/mini-data"
+
+pd_servers:
+  - host: 127.0.0.1
+    peer_port: 12380
+    client_port: 12379
+
+tidb_servers:
+  - host: 127.0.0.1
+    port: 4001
+    status_port: 10081
+  - host: 127.0.0.1
+    port: 4002
+    status_port: 10082
+
+tikv_servers:
+  - host: 127.0.0.1
+    port: 20161
+
+    # monitoring_servers:
+    #   - host: 127.0.0.1
+    # 
+    # grafana_servers:
+    #   - host: 127.0.0.1
+    # 
+    # alertmanager_servers:
+    #   - host: 127.0.0.1
