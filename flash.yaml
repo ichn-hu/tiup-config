@@ -5,6 +5,10 @@ global:
   ssh_port: 22
   deploy_dir: "/home/tidb/tmp/flash-cluster"
   data_dir: "/home/tidb/tmp/flash-data"
+    
+monitored:
+  node_exporter_port: 9410
+  blackbox_exporter_port: 9415
 
 server_configs:
   tidb:
@@ -24,11 +28,18 @@ tidb_servers:
 tikv_servers:
   - host: 127.0.0.1
     port: 24161
+    status_port: 24180
 
 tiflash_servers:
   - host: 127.0.0.1
     data_dir: /home/tidb/tmp/tidb-data/tiflash-9000
     deploy_dir: /home/tidb/tmp/tidb-deploy/tiflash-9000
+    tcp_port: 9400
+    flash_service_port: 3930
+    flash_proxy_port: 20170
+    flash_proxy_status_port: 20292
+    metrics_port: 8234
+    http_port: 8423
 
 monitoring_servers:
   - host: 127.0.0.1
