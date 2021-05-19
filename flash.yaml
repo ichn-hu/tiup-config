@@ -1,0 +1,41 @@
+# # Global variables are applied to all deployments and used as the default value of
+# # the deployments if a specific deployment value is missing.
+global:
+  user: "tidb"
+  ssh_port: 22
+  deploy_dir: "/home/tidb/tmp/flash-cluster"
+  data_dir: "/home/tidb/tmp/flash-data"
+
+server_configs:
+  tidb:
+    tikv-client.copr-cache:
+      enable: true
+
+pd_servers:
+  - host: 127.0.0.1
+    peer_port: 24380
+    client_port: 24379
+
+tidb_servers:
+  - host: 127.0.0.1
+    port: 4400
+    status_port: 14081
+
+tikv_servers:
+  - host: 127.0.0.1
+    port: 24161
+
+tiflash_servers:
+  - host: 127.0.0.1
+    data_dir: /home/tidb/tmp/tidb-data/tiflash-9000
+    deploy_dir: /home/tidb/tmp/tidb-deploy/tiflash-9000
+
+monitoring_servers:
+  - host: 127.0.0.1
+    port: 14580
+
+grafana_servers:
+  - host: 127.0.0.1
+    port: 14581
+
+
