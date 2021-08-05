@@ -6,6 +6,10 @@ global:
   deploy_dir: "/home/tidb/tmp/mini-deploy"
   data_dir: "/home/tidb/tmp/mini-data"
 
+    #server_configs:
+    #  tidb:
+    #    security.enable-sem: false
+
 pd_servers:
   - host: 127.0.0.1
     peer_port: 12380
